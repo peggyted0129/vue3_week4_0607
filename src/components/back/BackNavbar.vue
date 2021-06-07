@@ -15,10 +15,10 @@
             <router-link to="/admin/products" class="nav-link h5">產品列表</router-link>
           </li>
           <li class="nav-item ms-2">
-            <a class="nav-link h5" href="#">訂單列表</a>
+            <router-link to="/backstage/shopping" class="nav-link h5">模擬頁面</router-link>
           </li>
           <li class="nav-item ms-2">
-            <a class="nav-link h5" href="#">模擬頁面</a>
+            <a class="nav-link h5" href="#">訂單列表</a>
           </li>
         </ul>
         <div class="ms-auto">

@@ -28,6 +28,17 @@ const routes = [
         meta: { requiresAuth: true }
       }
     ]
+  },
+  {
+    path: '/backstage',
+    component: () => import('@/components/back/BackStage'),
+    children: [
+      {
+        path: 'shopping',
+        name: 'Backshopping',
+        component: () => import('@/views/back/BackShopping')
+      }
+    ]
   }
 ]
 

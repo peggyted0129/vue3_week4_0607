@@ -220,7 +220,7 @@ export default {
     this.tempProduct = this.innerTemp
   },
   mounted () {
-    this.delProductModal = new bootstrap.Modal(document.getElementById('delProductModal'), {
+    this.delProductModal = new bootstrap.Modal(this.$refs.delProductModal, {
       keyboard: false,
       backdrop: 'static'
     })
