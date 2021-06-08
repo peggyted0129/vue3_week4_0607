@@ -151,12 +151,9 @@
 </section>
 </template>
 <script>
-import * as bootstrap from 'bootstrap'
 export default {
   data () {
     return {
-      // modal: '',
-      delProductModal: '',
       fileUploading: false,
       tempProduct: { // 設定內層的接收 v-model 的變數，和外層的 tempProduct 無關
         imagesUrl: []
@@ -168,8 +165,8 @@ export default {
      從外層帶入變數 tempProduct 和內層的 innerTemp 對應(呈現在 modal 裡的內容)  */
   props: ['innerTemp', 'isNew'],
   watch: {
-    innerTemp () {
-      this.tempProduct = { ...this.innerTemp }
+    innerTemp () { // 把內層元件的 tempProduct 指向給 innerTemp
+      this.tempProduct = this.innerTemp
     }
   },
   methods: {
@@ -207,7 +204,7 @@ export default {
       vm.$http.delete(api).then((res) => {
         console.log('刪除商品', res.data)
         if (res.data.success) {
-          vm.delProductModal.hide()
+          vm.$emit('close-del-modal')
           vm.$swal({ title: res.data.message, icon: 'success' })
           vm.$emit('get-data')
         } else {
@@ -215,15 +212,6 @@ export default {
         }
       })
     }
-  },
-  created () { // 把內層元件的 tempProduct 指向給 innerTemp
-    this.tempProduct = this.innerTemp
-  },
-  mounted () {
-    this.delProductModal = new bootstrap.Modal(this.$refs.delProductModal, {
-      keyboard: false,
-      backdrop: 'static'
-    })
   }
 }
 </script>
