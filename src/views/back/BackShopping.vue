@@ -9,8 +9,9 @@
           :style="{backgroundImage: `url(${item.imageUrl})`}">
           </div>
           <div class="card-body" style="height: 136px">
-            <div class="d-flex">
-              <h5 class="card-title">{{ item.title }}</h5>
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="card-title mb-0">{{ item.title }}</h5>
+              <span class="badge bg-secondary align-self-center">Secondary</span>
               <!-- <span class="badge bg-secondary float-right ml-2">{{ item.category }}</span> -->
             </div>
             <p class="card-text">{{ item.content }}</p>
@@ -21,7 +22,7 @@
             </div>
           </div>
           <div class="card-footer d-flex">
-            <button type="button" class="btn btn-outline-secondary btn-sm">
+            <button type="button" class="btn btn-outline-secondary btn-sm" @click="openModal(item)">
               查看更多
             </button>
             <button type="button" class="btn btn-outline-danger btn-sm ms-auto">
@@ -32,19 +33,27 @@
       </div>
     </div>
   </div>
+  <!-- Modal -->
+  <user-product-modal ref="userProductModal" :product="product"></user-product-modal>
 </section>
 </template>
 <script>
+import userProductModal from '@/components/userProductModal.vue'
+
 export default {
+  components: {
+    userProductModal
+  },
   data () {
     return {
-      products: []
+      products: [],
+      product: {}
     }
   },
   methods: {
     getProducts () {
       const vm = this
-      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/products/all`
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/products`
       vm.$http.get(api).then((res) => {
         console.log('產品 All 列表', res.data)
         if (res.data.success) {
@@ -52,6 +61,16 @@ export default {
         } else {
           vm.$swal({ title: res.data.message, icon: 'error' })
         }
+      })
+    },
+    openModal (item) {
+      const vm = this
+      console.log(item)
+      vm.$refs.userProductModal.openModal()
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${item.id}`
+      vm.$http.get(api).then((res) => {
+        vm.product = res.data.product
+        vm.$refs.userProductModal.openModal()
       })
     }
   },

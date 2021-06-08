@@ -11,8 +11,8 @@
         <div class="carousel-item active" data-bs-interval="2000">
           <img src="../../assets/img/banner14.jpg" class="d-block w-100 vh-100" alt="img_oil">
           <div class="carousel-caption carousel-item-txt">
-            <h5 class="h1">來自醫生的保養建議</h5>
-            <p class="h4">更好的呵護你的肌膚</p>
+            <h5 class="h1 animate-carousel animate__animated animate__slideInLeft animate__slow animate__repeat-1">來自醫生的保養建議</h5>
+            <p class="h4 animate-carousel animate__animated animate__slideInRight animate__slow animate__repeat-1">更好的呵護你的肌膚</p>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="2000">
