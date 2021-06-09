@@ -4,31 +4,38 @@
     <!--- 商品卡片 --->
     <div class="row mt-9">
       <div class="col-md-3 mb-7" v-for="item in products" :key="item.id">
-        <div class="card back-card-shadow border-0">
-          <div style="height: 253px; background-size: contain; background-position: center; background-repeat: no-repeat;"
-          :style="{backgroundImage: `url(${item.imageUrl})`}">
-          </div>
-          <div class="card-body py-2 px-4" style="height: 100px">
-            <div class="d-flex justify-content-between mb-3">
-              <h5 class="card-title mb-0">{{ item.title }}</h5>
-              <span class="badge bg-secondary align-self-center">{{ item.category }}</span>
+        <a href="#" class="product-card">
+          <div class="card position-relative back-card-shadow border-0 card-radius">
+            <div style="height: 253px; background-size: contain; background-position: center; background-repeat: no-repeat;"
+              :style="{backgroundImage: `url(${item.imageUrl})`}">
             </div>
-            <p class="card-text">{{ item.content }}</p>
-            <div class="d-flex justify-content-between align-items-baseline">
-              <div class="h5" v-if="!item.price">{{ item.origin_price }} 元</div>
-              <del class="h6 text-streak" v-if="item.price">原價 {{ item.origin_price }} 元</del>
-              <div class="h5 text-danger" v-if="item.price">特價 {{ item.price }} 元</div>
+            <div class="card-bg d-flex align-items-center">
+              <p class="text-white fw-bolder p-8">{{ item.description }}</p>
+            </div>
+            <div class="card-body bg-light p-4" style="height: 100px">
+              <div class="d-flex justify-content-between mb-3">
+                <h5 class="card-title mb-0 text-theme">{{ item.title }}</h5>
+                <span class="badge bg-secondary align-self-center">{{ item.category }}</span>
+              </div>
+              <p class="card-text">{{ item.content }}</p>
+              <div class="d-flex justify-content-between align-items-baseline">
+                <div class="h5" v-if="!item.price">{{ item.origin_price }} 元</div>
+                <del class="h6 text-streak" v-if="item.price">NT$ {{ item.origin_price }} 元</del>
+                <div class="h5 text-danger fw-bolder" v-if="item.price">NT$ {{ item.price }} 元</div>
+              </div>
+            </div>
+            <div class="card-footer bg-light d-flex justify-content-center px-0 py-2">
+              <button type="button" class="btn border-end hvr-bounce-to-right py-2 px-0 w-50" @click="openModal(item)">
+                <i class="fas fa-shopping-cart me-1"></i>
+                加到購物車
+              </button>
+              <a href="#" class="btn hvr-icon-wobble-vertical py-2 px-0 w-50">
+                <i class="fas fa-file-alt hvr-icon me-1"></i>
+                詳細資訊
+              </a>
             </div>
           </div>
-          <div class="card-footer d-flex">
-            <button type="button" class="btn btn-outline-secondary btn-sm" @click="openModal(item)">
-              查看更多
-            </button>
-            <button type="button" class="btn btn-outline-danger btn-sm ms-auto">
-              加到購物車
-            </button>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
