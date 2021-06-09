@@ -8,21 +8,21 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="2000">
+        <div class="carousel-item active" data-bs-interval="5000">
           <img src="../../assets/img/banner14.jpg" class="d-block w-100 vh-100" alt="img_oil">
           <div class="carousel-caption carousel-item-txt">
-            <h5 class="h1 animate-carousel animate__animated animate__slideInLeft animate__slow animate__repeat-1">來自醫生的保養建議</h5>
-            <p class="h4 animate-carousel animate__animated animate__slideInRight animate__slow animate__repeat-1">更好的呵護你的肌膚</p>
+            <h5 class="h1 js-animate-carousel animate__animated animate__slideInLeft animate__slow">來自醫生的保養建議</h5>
+            <p class="h4 js-animate-carousel-2 animate__animated animate__slideInRight animate__slow">更好的呵護你的肌膚</p>
           </div>
         </div>
-        <div class="carousel-item" data-bs-interval="2000">
+        <div class="carousel-item" data-bs-interval="5000">
           <img src="../../assets/img/banner1.jpg" class="d-block w-100 vh-100" alt="img_dark">
           <div class="carousel-caption carousel-item-txt">
             <h5 class="h1">認明台灣總代理</h5>
             <p class="h4">健康肌膚的領導品牌</p>
           </div>
         </div>
-        <div class="carousel-item" data-bs-interval="2000">
+        <div class="carousel-item" data-bs-interval="5000">
           <img src="../../assets/img/banner13.jpg" class="d-block w-100 vh-100" alt="img_color">
           <div class="carousel-caption carousel-item-txt">
             <h5 class="h1">精選歐盟法規認證成分</h5>
@@ -97,7 +97,18 @@ export default {
     return {
     }
   },
+  methods: {
+    animateNone () {
+      const jsAnimate = document.querySelector('.js-animate-carousel')
+      const jsAnimate2 = document.querySelector('.js-animate-carousel-2')
+      setTimeout(() => {
+        jsAnimate.classList.remove('animate__slideInLeft')
+        jsAnimate2.classList.remove('animate__slideInRight')
+      }, 2000)
+    }
+  },
   mounted () {
+    this.animateNone()
     AOS.init({
       offset: 120,
       duration: 400

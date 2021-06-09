@@ -3,21 +3,20 @@
   <div class="container">
     <!--- 商品卡片 --->
     <div class="row mt-9">
-      <div class="col-md-3 mb-4" v-for="item in products" :key="item.id">
-        <div class="card border-0 shadow-sm">
-          <div style="height: 200px; background-size: cover; background-position: center;"
+      <div class="col-md-3 mb-7" v-for="item in products" :key="item.id">
+        <div class="card back-card-shadow border-0">
+          <div style="height: 253px; background-size: contain; background-position: center; background-repeat: no-repeat;"
           :style="{backgroundImage: `url(${item.imageUrl})`}">
           </div>
-          <div class="card-body" style="height: 136px">
+          <div class="card-body py-2 px-4" style="height: 100px">
             <div class="d-flex justify-content-between mb-3">
               <h5 class="card-title mb-0">{{ item.title }}</h5>
-              <span class="badge bg-secondary align-self-center">Secondary</span>
-              <!-- <span class="badge bg-secondary float-right ml-2">{{ item.category }}</span> -->
+              <span class="badge bg-secondary align-self-center">{{ item.category }}</span>
             </div>
             <p class="card-text">{{ item.content }}</p>
             <div class="d-flex justify-content-between align-items-baseline">
               <div class="h5" v-if="!item.price">{{ item.origin_price }} 元</div>
-              <del class="h6" v-if="item.price">原價 {{ item.origin_price }} 元</del>
+              <del class="h6 text-streak" v-if="item.price">原價 {{ item.origin_price }} 元</del>
               <div class="h5 text-danger" v-if="item.price">特價 {{ item.price }} 元</div>
             </div>
           </div>

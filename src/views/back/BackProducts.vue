@@ -36,7 +36,7 @@
       <Pagination :pages="pagination" @get-product="getProductsA" class="mt-10"></Pagination>
     </div>
     <!-- Modal -->
-    <ProductModal :is-new="isNew" @update-product="updateProduct" :inner-temp="tempProduct" @get-data="getProductsA" @close-del-modal="closeDelModal"></ProductModal>
+    <ProductModal ref="touchModal" :is-new="isNew" @update-product="updateProduct" :inner-temp="tempProduct" @get-data="getProductsA" @close-del-modal="closeDelModal"></ProductModal>
   </div>
 </section>
 </template>
@@ -125,13 +125,7 @@ export default {
       keyboard: false,
       backdrop: 'static'
     })
-    /*
-    this.delProductModal = new bootstrap.Modal(document.getElementById('delProductModal'), {
-      keyboard: false,
-      backdrop: 'static'
-    })
-    */
-    this.delProductModal = new bootstrap.Modal(this.$refs.delProductModal, {
+    this.delProductModal = new bootstrap.Modal(this.$refs.touchModal.$refs.delProductModal, {
       keyboard: false,
       backdrop: 'static'
     })
