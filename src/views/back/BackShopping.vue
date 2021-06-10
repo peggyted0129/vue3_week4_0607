@@ -14,7 +14,7 @@
             </div>
             <div class="card-body bg-light p-4" style="height: 100px">
               <div class="d-flex justify-content-between mb-3">
-                <h5 class="card-title mb-0 text-theme">{{ item.title }}</h5>
+                <h5 class="card-title mb-0 text-theme fw-bolder">{{ item.title }}</h5>
                 <span class="badge bg-secondary align-self-center">{{ item.category }}</span>
               </div>
               <p class="card-text">{{ item.content }}</p>

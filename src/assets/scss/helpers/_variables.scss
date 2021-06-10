@@ -56,6 +56,7 @@ $glass:   #f7c51e !default;
 $milk:    #fff9eb !default;
 $lgreen:  #28a745 !default;
 $sgreen:  #16a086 !default;
+$sgray:     #f7f7f7 !default;
 
 
 // scss-docs-end color-variables
@@ -84,7 +85,8 @@ $colors: (
   "glass":      $glass,
   "milk":       $milk,
   "lgreen":     $lgreen,
-  "sgreen":     $sgreen
+  "sgreen":     $sgreen,
+  "sgray":      $sgray
 ) !default;
 // scss-docs-end colors-map
 
@@ -107,6 +109,7 @@ $glass:         $glass !default;
 $milk:          $milk !default;
 $lgreen:        $lgreen !default;
 $sgreen:        $sgreen !default;
+$sgray:         $sgray !default;
 // scss-docs-end theme-color-variables
 
 
@@ -132,7 +135,8 @@ $theme-colors: (
   "glass":      $glass,
   "milk":       $milk,
   "lgreen":     $lgreen,
-  "sgreen":     $sgreen
+  "sgreen":     $sgreen,
+  "sgray":      $sgray
 ) !default;
 // scss-docs-end theme-colors-map
 
